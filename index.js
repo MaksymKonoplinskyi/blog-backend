@@ -9,10 +9,11 @@ import { UserController, PostController, CommentController } from './controllers
 import checkAftorComent from './utils/checkAftorComent.js';
 import checkAftorPost from './utils/checkAftorPost.js';
 
-
+ 
+  
 mongoose.connect(process.env.MONGODB_URL)
 .then(() => console.log('DB ok'))
-    .catch((err) => console.log('DB err', err))
+    .catch((err) => console.log('DB err', err)) 
 
 const app = express()
 
@@ -26,7 +27,7 @@ const storage = multer.diskStorage({
     filename: (_, file, cb) => {
         cb(null, file.originalname);
     },
-});
+}); 
 
 
 

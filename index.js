@@ -10,8 +10,8 @@ import checkAftorComent from './utils/checkAftorComent.js';
 import checkAftorPost from './utils/checkAftorPost.js';
 
 
-mongoose.connect('mongodb+srv://admin:qawedrQ3dd@cluster0.eq52f.mongodb.net/blog?retryWrites=true&w=majority',
-).then(() => console.log('DB ok'))
+mongoose.connect(process.env.MONGODB_URL)
+.then(() => console.log('DB ok'))
     .catch((err) => console.log('DB err', err))
 
 const app = express()
@@ -75,6 +75,6 @@ app.patch('/comment/:id', checkAuth, checkAftorComent, CommentController.update)
 app.delete('/comment/:id', checkAuth, CommentController.remove);
 app.get('/posts/withTag/:tagName/:sort', PostController.getPostsWithTag);
 
-app.listen(4444, (err) => {
+app.listen(process.env.PORT || 4444, (err) => {
     err ? console.log(err) : console.log('Server OK');
 })   

@@ -1,3 +1,4 @@
 node_modules
 process.env
 # uploads
+package-lock.json

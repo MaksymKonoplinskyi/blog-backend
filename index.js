@@ -12,8 +12,9 @@ import checkAftorComent from './utils/checkAftorComent.js';
 import checkAftorPost from './utils/checkAftorPost.js';
 
  
-  
-mongoose.connect(process.env.MONGODB_URL)
+const options = { dbName: "blog" }
+mongoose.set('strictQuery', true);  
+mongoose.connect(process.env.MONGODB_URL, options)
 .then(() => console.log('DB ok'))
     .catch((err) => console.log('DB err', err)) 
 
